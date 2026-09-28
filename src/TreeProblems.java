@@ -184,8 +184,18 @@ public class TreeProblems {
    
   */
   public static <T> int maxDepth(Node<T> root) {
-    return -1;
-  }
+   if (root == null){
+    return 0;
+   }
+   int deepest = 0;
+
+   for (Node<T> child : root.children) {
+            deepest = Math.max(deepest, maxDepth(child));
+        }
+
+        return 1 + deepest;
+    }
+
 
   /*
    maxDepth (Map Version)
@@ -197,7 +207,7 @@ public class TreeProblems {
     A -> [B, E, C]
     B -> [E]
     E -> []
-    C -> [D, Q]
+    C -> [D, Q
     D -> [Z]
     Q -> []
     Z -> []
